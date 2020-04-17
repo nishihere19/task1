@@ -1,0 +1,28 @@
+html{
+    background-color: darkslategray;
+}
+.game{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 1px 4px black;
+    padding: 15px;
+    background-color: black;
+    border-radius: 5px;
+    
+}
+.grid{
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px;
+    border: 1px solid black;  
+    background-color: darkslategrey;
+}
+.grid button{
+    background-color: honeydew;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid black;
+}
