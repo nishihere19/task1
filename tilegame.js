@@ -63,41 +63,102 @@ function reset(){
     document.getElementById("st").disabled=false;
      stop();
 }
-var x,timer,divide;
+var x,timer,divide,count=0;
 x=0;
 divide=1000;
 var best_time=localStorage.getItem("best_time");
+var best=new Array(6);
 var curr_time;
 function start(){
     timer=self.setInterval("increment()",(1000/divide));
+  
    
     
 }
 function increment(){
     x++;
     document.getElementById("timer_out").innerHTML=(x/divide);
-   if(best_time==null){
+   if(best_time==null||best_time==0){
     document.getElementById("best_time").innerHTML=(curr_time);
    }
    curr_time=x/divide;
     
 }
 function stop(){
- if(t>56&&curr_time<(best_time)){
-     best_time=curr_time;
-     localStorage.setItem("best_time",best_time-0.001);
- }
-    if(t>56&&best_time==null){
-        best_time=curr_time;
-     localStorage.setItem("best_time",best_time-0.001);
-    
+    if(t>56){
+    if(best[4]=='null'||best[4]=='undefined'){
+        if(best[3]=='null'||best[3]=='undefined'){
+            if(best[2]=='null'||best[2]=='undefined'){
+                if(best[1]=='null'||best[1]=='undefined'){
+                    if(best[0]=='null'|| best[0]=='undefined'){
+                        best[0]=curr_time;
+                        curr_time=null;
+                        count=1;
+                    }
+                    else{
+                        best[1]=curr_time;
+                        curr_time=null;
+                        count=2;
+                    }
+                }
+                 else{
+                        best[2]=curr_time;
+                     curr_time=null;
+                     count=3;
+                    }
+                
+            }
+             else{
+                        best[3]=curr_time;
+                 curr_time=null;
+                 count=4;
+                    }
+        }
+         else{
+                        best[4]=curr_time;
+             curr_time=null;
+             count=5;
+                    }
     }
-    document.getElementById("best_time").innerHTML=(best_time); 
+   else{
+       if(curr_time!=null){
+        best[5]=curr_time;
+           curr_time=null;
+        count=6;}
+       
+    }
+    
+    best=best.slice(0,count).sort().concat(best.slice(count+1,5));
+    localStorage.setItem("best_time_1",best[0]);
+     localStorage.setItem("best_time_2",best[1]);
+     localStorage.setItem("best_time_3",best[2]);
+     localStorage.setItem("best_time_4",best[3]);
+     localStorage.setItem("best_time_5",best[4]);
+     localStorage.setItem("best_time",best[0]);
+        if(best[0]!='undefined'||best[0]!=null){
+             document.getElementById("best_time").innerHTML=(best[0]);
+            document.getElementById("best_time_1").innerHTML=(best[0]);
+        }
+    if(best[1]!=null){
+    document.getElementById("best_time_2").innerHTML=(best[1]); }
+         if(best[2]!=null){
+    document.getElementById("best_time_3").innerHTML=(best[2]); }
+         if(best[3]!=null){
+    document.getElementById("best_time_4").innerHTML=(best[3]); }
+         if(best[4]!=null){
+    document.getElementById("best_time_5").innerHTML=(best[4]); }
+   
+    }
     clearInterval(timer);
     timer=null;
 }
 function reset_time(){
     stop();
+    best[0]=localStorage.getItem("best_time_1");
+best[1]=localStorage.getItem("best_time_2");
+best[2]=localStorage.getItem("best_time_3");
+best[3]=localStorage.getItem("best_time_4");
+best[4]=localStorage.getItem("best_time_5");
     
     x=0;
    document.getElementById("timer_out").innerHTML=(x/divide); 
