@@ -1,10 +1,14 @@
 
+var z=0;
 function fnc(){
       
          for(i=0;i<16;i++){
           document.getElementById(i).disabled=false;
         }
-
+    if(z==0){
+init();
+ z++;   }
+    
     
     reset_time();
 var a=new Array(9)
@@ -47,6 +51,7 @@ if(document.getElementById(d).value==y){
     }
     if(t>56){
       reset();
+        localStorage.setItem("Init","initialized");
       }
         y++;
 }
@@ -71,14 +76,14 @@ var best=new Array(6);
 var curr_time;
 function start(){
     timer=self.setInterval("increment()",(1000/divide));
-  
+
    
     
 }
 function increment(){
     x++;
     document.getElementById("timer_out").innerHTML=(x/divide);
-   if(best_time==null||best_time==0){
+   if(best_time=="null"){
     document.getElementById("best_time").innerHTML=(curr_time);
    }
    curr_time=x/divide;
@@ -86,25 +91,29 @@ function increment(){
 }
 function stop(){
     if(t>56){
-    if(best[4]=='null'||best[4]=='undefined'){
-        if(best[3]=='null'||best[3]=='undefined'){
-            if(best[2]=='null'||best[2]=='undefined'){
-                if(best[1]=='null'||best[1]=='undefined'){
-                    if(best[0]=='null'|| best[0]=='undefined'){
+    if(best[4]==='null'){
+        if(best[3]==='null'){
+            if(best[2]==='null'){
+                if(best[1]==='null'){
+                    if(best[0]==='null'){
                         best[0]=curr_time;
                         curr_time=null;
                         count=1;
+                        document.getElementById("best_time_5").innerHTML=("done");
+                        
                     }
                     else{
                         best[1]=curr_time;
                         curr_time=null;
                         count=2;
+                        
                     }
                 }
                  else{
                         best[2]=curr_time;
                      curr_time=null;
                      count=3;
+                     
                     }
                 
             }
@@ -112,30 +121,52 @@ function stop(){
                         best[3]=curr_time;
                  curr_time=null;
                  count=4;
+                 
                     }
         }
          else{
                         best[4]=curr_time;
              curr_time=null;
              count=5;
+             
                     }
+         best=best.slice(0,count).sort(function(a,b){
+             return a-b;}).concat(best.slice(count,5));
+          localStorage.setItem("best_time_1",best[0]);
+          localStorage.setItem("best_time",best[0]);
+          localStorage.setItem("best_time_2",best[1]);
+          localStorage.setItem("best_time_3",best[2]);
+          localStorage.setItem("best_time_4",best[3]);
+          localStorage.setItem("best_time_5",best[4]);
+
+
     }
    else{
        if(curr_time!=null){
         best[5]=curr_time;
-           curr_time=null;
-        count=6;}
-       
-    }
-    
-    best=best.slice(0,count).sort().concat(best.slice(count+1,5));
-    localStorage.setItem("best_time_1",best[0]);
+           
+        count=6;
+           best=best.slice(0,count).sort(function(a,b){
+             return a-b;});
+         localStorage.setItem("best_time_1",best[0]);
      localStorage.setItem("best_time_2",best[1]);
      localStorage.setItem("best_time_3",best[2]);
      localStorage.setItem("best_time_4",best[3]);
      localStorage.setItem("best_time_5",best[4]);
      localStorage.setItem("best_time",best[0]);
-        if(best[0]!='undefined'||best[0]!=null){
+           curr_time=null;
+    
+       }
+       
+    }
+    
+   
+
+   
+          
+    }
+      best_time=localStorage.getItem("best_time");
+          if(best[0]!=null){
              document.getElementById("best_time").innerHTML=(best[0]);
             document.getElementById("best_time_1").innerHTML=(best[0]);
         }
@@ -147,20 +178,39 @@ function stop(){
     document.getElementById("best_time_4").innerHTML=(best[3]); }
          if(best[4]!=null){
     document.getElementById("best_time_5").innerHTML=(best[4]); }
-   
-    }
     clearInterval(timer);
     timer=null;
 }
 function reset_time(){
     stop();
-    best[0]=localStorage.getItem("best_time_1");
-best[1]=localStorage.getItem("best_time_2");
-best[2]=localStorage.getItem("best_time_3");
-best[3]=localStorage.getItem("best_time_4");
-best[4]=localStorage.getItem("best_time_5");
+
     
     x=0;
    document.getElementById("timer_out").innerHTML=(x/divide); 
     
+}
+function init(){
+    var f;
+    f=localStorage.getItem("Init");
+    if(f=="initialized"){
+best[0]=localStorage.getItem("best_time_1");
+best[1]=localStorage.getItem("best_time_2");
+best[2]=localStorage.getItem("best_time_3");
+best[3]=localStorage.getItem("best_time_4");
+best[4]=localStorage.getItem("best_time_5");     
+document.getElementById("best_time").innerHTML=(best[0]);
+document.getElementById("best_time_1").innerHTML=(best[0]);
+document.getElementById("best_time_2").innerHTML=(best[1]); 
+document.getElementById("best_time_3").innerHTML=(best[2]); 
+document.getElementById("best_time_4").innerHTML=(best[3]); 
+document.getElementById("best_time_5").innerHTML=(best[4]); 
+    }
+    else{
+         localStorage.setItem("best_time",null);
+      localStorage.setItem("best_time_1",null);
+     localStorage.setItem("best_time_2",null);
+     localStorage.setItem("best_time_3",null);
+     localStorage.setItem("best_time_4",null);
+     localStorage.setItem("best_time_5",null); 
+    }
 }
