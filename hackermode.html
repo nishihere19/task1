@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head><title>First game!</title>
+    <link rel="stylesheet";
+          type="text/css";
+          href="hackermode.css";>
+    </head>
+    <body><p style="font-size: 30px; color: midnightblue; text-align: center; font-family: cursive"> Click <b>The Numbers</b> in <b>Ascending </b>order to play!!</p>
+        <ul  style="font-size: 15px; color: midnightblue; text-align: left; font-family: cursive; float: left">
+        <li>Click on the<b>MODE</b> you want to play,<br> then click the <b>START</b> button! </li>
+        <li>For MEDIUM and HARD the values randomize automatically<br> within few seconds, depending on the MODE!</li>
+            <li>If a wrong digit is clicked, timer stops automatically<br> and you need to restart!</li>
+        <li>TOP 5 scores are displayed in the list<br> based on the difficulty level!</li>
+        <li>The BEST TIME for that particular level<br> is displayed in the game below!</li></ul>
+        <div style="font-size: 30px; color: midnightblue; font-family: cursive; text-align: right; float: right"><b>Top 5</b>
+      <table>
+<tr style="font-size: 26px; color: midnightblue; font-family: cursive; text-align: right"><td>Easy</td><td>Medium</td><td>Hard</td></tr>
+<tr><td id="best_time_1_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_1_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_1_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
+    <tr><td id="best_time_2_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_2_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_2_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
+    <tr><td id="best_time_3_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_3_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_3_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
+    <tr><td id="best_time_4_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_4_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_4_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
+    <tr><td id="best_time_5_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_5_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <td id="best_time_5_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
+</table>
+     </div>
+        <div class="game">
+        <input type="button" onclick="fnc();" id="st" value="START" style="background-color: darkslategray" "align-content: center" "font-size: 35px"><br>
+            <input type="button" onclick="mod(id);" id="E" value="EASY" style="background-color: darkslategray" "font-size: 30px">
+            <input type="button" onclick="mod(id);" id="M" value="MEDIUM" style="background-color: darkslategray" "font-size: 30px">
+            <input type="button" onclick="mod(id);" id="H" value="HARD" style="background-color: darkslategray" "font-size: 30px">
+        <div class="grid">
+
+<marquee> <input type="button" id="0" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="1" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="2" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="3" value="" onclick="val(id);" style="background-color: darkslategrey"></marquee><br> 
+<marquee direction="right"><input type="button" id="4" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="5" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="6" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="7" value="" onclick="val(id);" style="background-color: darkslategrey"></marquee><br> 
+<marquee><input type="button" id="8" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="9" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="10" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="11" value="" onclick="val(id);" style="background-color: darkslategrey"></marquee><br> 
+<marquee direction="right"><input type="button" id="12" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="13" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="14" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="15" value="" onclick="val(id);" style="background-color: darkslategrey"></marquee> 
+
+<div style="font-size: 20px; color: dodgerblue; font-family: cursive"><b>TIME:</b><span id="timer_out" style="font-size: 20px; color: dodgerblue; font-family: cursive">0.00</span></div>  
+              
+
+<div style="font-size: 20px; color: dodgerblue; font-family: cursive"><b>BEST TIME:</b><span id="best_time" style="font-size: 20px; color: dodgerblue; font-family: cursive">0.00</span></div>
+
+
+        </div>
+        </div>
+            
+    <script src="hackermode.js">
+     </script>
+    </body>
+    </html>
