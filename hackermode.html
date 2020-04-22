@@ -5,29 +5,49 @@
           type="text/css";
           href="hackermode.css";>
     </head>
-    <body><p style="font-size: 30px; color: midnightblue; text-align: center; font-family: cursive"> Click <b>The Numbers</b> in <b>Ascending </b>order to play!!</p>
-        <ul  style="font-size: 15px; color: midnightblue; text-align: left; font-family: cursive; float: left">
+    <audio controls loop style="height: 30px;"><source src="bensound-endlessmotion.mp3">
+    </audio>
+    <body><p style="font-size: 30px; color: midnightblue; text-align: center; font-family: cursive; @media only screen and(max-width:768px){
+                    width: 100%
+                    }"> Click <b>The Numbers</b> in <b>Ascending </b>order to play <b>FORTY SHADES OF GRAY!!</b></p>
+        <ul  style="font-size: 15px; color: midnightblue; text-align: left; font-family: cursive; float: left; @media only screen and(max-width:768px){
+                    width: 100%
+                    }">
         <li>Click on the<b>MODE</b> you want to play,<br> then click the <b>START</b> button! </li>
-        <li>For MEDIUM and HARD the values randomize automatically<br> within few seconds, depending on the MODE!</li>
+        <li>For MEDIUM and HARD the values will be increaased<br>to <b>60</b> and <b>80</b>, depending on the MODE!</li>
             <li>If a wrong digit is clicked, timer stops automatically<br> and you need to restart!</li>
         <li>TOP 5 scores are displayed in the list<br> based on the difficulty level!</li>
         <li>The BEST TIME for that particular level<br> is displayed in the game below!</li></ul>
-        <div style="font-size: 30px; color: midnightblue; font-family: cursive; text-align: right; float: right"><b>Top 5</b>
+        <div style="font-size: 30px; color: midnightblue; font-family: cursive; text-align: right; float: right; @media only screen and(max-width:768px){
+                    width: 100%
+                    }"><b>Top 5</b>
       <table>
-<tr style="font-size: 26px; color: midnightblue; font-family: cursive; text-align: right"><td>Easy</td><td>Medium</td><td>Hard</td></tr>
-<tr><td id="best_time_1_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+<tr style="font-size: 26px; color: midnightblue; font-family: cursive; text-align: right; @media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td>Easy</td><td>Medium</td><td>Hard</td></tr>
+<tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_1_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_1_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_1_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
-    <tr><td id="best_time_2_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_2_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_2_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_2_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
-    <tr><td id="best_time_3_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_3_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_3_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_3_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
-    <tr><td id="best_time_4_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_4_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_4_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_4_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
-    <tr><td id="best_time_5_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_5_easy" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_5_med" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td>
     <td id="best_time_5_tuf" style="font-size: 20px; color: midnightblue; font-family: cursive; text-align: right"></td></tr>
 </table>
