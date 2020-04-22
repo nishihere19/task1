@@ -9,13 +9,8 @@ var i;
 
 function fnc(){
     t=16;
-  xtra=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
-      if(mode==="med"){
-          tm=7000;
-      }
-    if(mode==="tuf"){
-        tm=10000;
-      }
+  
+      
          for(i=0;i<16;i++){
           document.getElementById(i).disabled=false;
         }
@@ -33,15 +28,12 @@ while (j<a.length){
     random=Math.floor(Math.random()*a.length)
     if(a[random]!=="slctd"){
         document.getElementById(a[random]).value=j;
-        document.getElementById(a[random]).style.backgroundColor= rgb(255-(j*5),255-(j*5),255-(j*5));
+        document.getElementById(a[random]).style.backgroundColor= rgb(255-(j*4),255-(j*4),255-(j*4));
         a[random]="slctd";
         j++;
     }
 }
-       if(mode!=="easy"){
-       lev_timer=setInterval(rndm,tm);
-        
-       }
+       
     start();
       
 }
@@ -49,8 +41,7 @@ var t;
 var y=0;
 var i;
 var d;
-let xtra= new Array();
-xtra=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+
 var indx=0;
 function val(d=this.id){
    
@@ -61,24 +52,23 @@ function val(d=this.id){
         document.getElementById("st").disabled=true;
     }
 if(document.getElementById(d).value==y){
-    if(t>40){
-        c=document.getElementById(d).value="";
-        if(mode==="easy"){
+    if((mode==="easy"&&(t>40))||(mode==="med"&&(t>60))||(mode==="tuf"&&(t>80))){
         document.getElementById(d).disabled=true;
-        }
-        indx=parseInt(d);
-        xtra[indx]=0;
+        
+       document.getElementById(d).value="";
+        
         t++;
     }
+    
     else{
         document.getElementById(d).value=t;
-        document.getElementById(d).style.backgroundColor= rgb(255-(t*5),255-(t*5),255-(t*5));
+        document.getElementById(d).style.backgroundColor= rgb(255-(t*4),255-(t*4),255-(t*4));
         t++;
       
     
         
     }
-    if(t>56){
+    if((mode==="easy"&&t>56)||(mode==="med"&&t>76)||(mode==="tuf"&&t>96)){
       reset();
         if(mode=="easy"){
         localStorage.setItem("Init_easy","initialized");
@@ -129,20 +119,22 @@ var curr_time;
 
 
 function start(){
-    timer=self.setInterval("increment()",(1000/divide));
+    timer=self.setInterval("increment()",(1000000/divide));
        
    
 }
+var c=0;
 function increment(){
     x++;
-    document.getElementById("timer_out").innerHTML=(x/divide);
+    document.getElementById("timer_out").innerHTML=(x);
+    
    
-   curr_time=x/divide;
+   curr_time=(x*10)/divide;
 
     
 }
 function stop(){
-    if(t>56){
+    if((mode==="easy"&&t>56)||(mode==="med"&&t>76)||(mode==="tuf"&&t>96)){
     if(best[4]==="null"||best.length<4){
         if(best[3]==="null"||best.length<3){
             if(best[2]==="null"||best.length<2){
@@ -309,8 +301,7 @@ document.getElementById("best_time_1_easy").innerHTML=(best[0]);
     
     
     clearInterval(timer);
-        clearInterval(lev_timer);
-    lev_timer=null;
+   
     timer=null;
 }
 function reset_time(){
@@ -528,26 +519,6 @@ init_tuf();
         
     }
 }
-    var b=new Array(16);
-  
+ 
 
-function rndm(){   
-j=t-16;
- b=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-while (j<(b.length+(t-16))){
-    
-    random=Math.floor(Math.random()*b.length)
-    if(b[random]!="slctd"&&(xtra[b[random]]==1)){
-        document.getElementById(b[random]).value=j;
-        document.getElementById(b[random]).style.backgroundColor= rgb(255-(j*5),255-(j*5),255-(j*5));
-        b[random]="slctd";
-        j++;
-        if(j>40){
-            j=b.length+(t-16);
-        }
-    }
-}
-   
 
-   }
-    
