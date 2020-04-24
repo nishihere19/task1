@@ -63,9 +63,3 @@ audio{
 p{
     transform: translate(-0%,-80%);
 }
-.audio{
-    float: right;
- width: 200px;
-    height: 20px;
-    background-color: black;
-}
