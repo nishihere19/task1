@@ -1,5 +1,9 @@
-var ad= new HTMLAudioElement("audio");
-ad.play();
+var audio = new Audio('bensound-endlessmotion.mp3');
+audio.play();
+function play() {
+  var audio = new Audio('bensound-endlessmotion.mp3');
+  audio.play();
+}
 
 var z_easy=0;
 var z_medium=0;
@@ -124,7 +128,7 @@ if(document.getElementById(d).value==y){
         
         t++;
     }
-    
+   
     else{
         document.getElementById(d).value=t;
         document.getElementById(d).style.backgroundColor= rgb(255-(t*4),255-(t*4),255-(t*4));
