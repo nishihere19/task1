@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head><title>First game!</title>
+    <link rel="stylesheet";
+          type="text/css";
+          href="game.css";>
+    </head>
+   
+    <body><p style="font-size: 30px; color: midnightblue; text-align: center; font-family: Comic Sans MS; @media only screen and(max-width:768px){
+                    width: 100%
+                   position: absolute;
+                   top: 0%;
+                   left: 50%;
+                    }"> Click <b>The Numbers</b> in <b>Ascending </b>order to play <b>FORTY SHADES OF GRAY!!</b></p>
+        <ul  style="font-size: 15px; color: midnightblue; text-align: left; font-family: Comic Sans MS; float: left; @media only screen and(max-width:768px){
+                    width: 100%
+                    }">
+        <li>Click on the<b>MODE</b><br> you want to play,<br> then click the <b>START</b> button! </li>
+        <li>For MEDIUM and HARD the values<br> will be increased<br>to <b>60</b> and <b>80</b>, depending on the MODE!</li>
+            <li>If a wrong digit is clicked, <br>timer stops automatically<br> and you need to restart!</li>
+        <li>TOP 5 scores are displayed<br> in the list based <br> on the difficulty level!</li>
+        <li>The BEST TIME for that particular<br> level is displayed in the game below!</li></ul>
+        
+        <div style="font-size: 30px; color: midnightblue; font-family: Comic Sans MS; text-align: right; float: right; @media only screen and(max-width:768px){
+                    width: 100%
+                    }"><b>Top 5</b>
+      <table>
+<tr style="font-size: 26px; color: midnightblue; font-family: Comic Sans MS; text-align: right; @media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td>Easy</td><td>Medium</td><td>Hard</td></tr>
+<tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_1_easy" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_1_med" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_1_tuf" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td></tr>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_2_easy" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_2_med" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_2_tuf" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td></tr>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_3_easy" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_3_med" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_3_tuf" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td></tr>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_4_easy" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_4_med" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_4_tuf" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td></tr>
+    <tr style="@media only screen and(max-width:768px){
+                    width: 100%
+                    }"><td id="best_time_5_easy" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_5_med" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td>
+    <td id="best_time_5_tuf" style="font-size: 20px; color: midnightblue; font-family: Comic Sans MS; text-align: right"></td></tr>
+</table>
+     </div>
+        <div class="game">  
+         <audio id="audio" controls autoplay="true" muted="muted" loop style="height: 30px; float: right" src="bensound-endlessmotion.mp3">
+    </audio>
+        <input type="button" onclick="fnc();" id="st" value="START" style="background-color: darkslategray" "align-content: center" "font-size: 35px"><br>
+            
+            <input type="button" onclick="mod(id);" id="E" value="EASY" style="background-color: darkslategray" "font-size: 30px">
+            <input type="button" onclick="mod(id);" id="M" value="MEDIUM" style="background-color: darkslategray" "font-size: 30px">
+            <input type="button" onclick="mod(id);" id="H" value="HARD" style="background-color: darkslategray" "font-size: 30px">
+        <div class="grid">
+
+<marquee id="ma1"><input type="button" id="1" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="2" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="3" value="" onclick="val(id);" style="background-color: darkslategrey"> 
+<input type="button" id="4" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="17" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+<input type="button" id="26" value="" onclick="val(id);" style="background-color: darkslategrey; display: none"></marquee><br>
+<marquee direction="right" id="ma2"><input type="button" id="5" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="6" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="7" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="8" value="" onclick="val(id);" style="background-color: darkslategrey">
+      
+<input type="button" id="18" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+<input type="button" id="27" value="" onclick="val(id);" style="background-color: darkslategrey; display: none"></marquee><br> 
+<marquee id="ma3"><input type="button" id="9" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="10" value="" onclick="val(id);" style="background-color: darkslategrey">
+<input type="button" id="11" value="" onclick="val(id);" style="background-color: darkslategrey"> 
+<input type="button" id="12" value="" onclick="val(id);" style="background-color: darkslategrey">
+ 
+
+          <input type="button" id="19" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="28" value="" onclick="val(id);" style="background-color: darkslategrey; display: none"></marquee><br>
+            <marquee direction="right" id="ma4"><input type="button" id="13" value="" onclick="val(id);" style="background-color: darkslategrey">
+            <input type="button" id="14" value="" onclick="val(id);" style="background-color: darkslategrey">
+            <input type="button" id="15" value="" onclick="val(id);" style="background-color: darkslategrey">
+            <input type="button" id="16" value="" onclick="val(id);" style="background-color: darkslategrey">
+            <input type="button" id="20" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+           <input type="button" id="29" value="" onclick="val(id);" style="background-color: darkslategrey; display: none"></marquee><br> 
+            <marquee id="ma5"><input type="button" id="21" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="22" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="23" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="24" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="25" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="30" value="" onclick="val(id);" style="background-color: darkslategrey; display: none"></marquee><br> 
+            <marquee direction="right" id="ma6"><input type="button" id="31" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="32" value="" onclick="val(id);" style="background-color: darkslategrey; display: none"> 
+           <input type="button" id="33" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="34" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="35" value="" onclick="val(id);" style="background-color: darkslategrey; display: none">
+            <input type="button" id="36" value="" onclick="val(id);" style="background-color: darkslategrey; display: none"></marquee><br> 
+       
+<div style="font-size: 20px; color: dodgerblue; font-family: Comic Sans MS"><b>TIME:</b><span id="timer_out" style="font-size: 20px; color: dodgerblue; font-family: Comic Sans MS">0.00</span></div>  
+              
+
+<div style="font-size: 20px; color: dodgerblue; font-family: Comic Sans MS"><b>BEST TIME:</b><span id="best_time" style="font-size: 20px; color: dodgerblue; font-family: Comic Sans MS">0.00</span></div>
+        </div>
+        </div>
+
+          
+    <script src="game.js">
+     </script>
+        
+    </body>
+    </html>
