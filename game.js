@@ -8,6 +8,17 @@ var tm;
 var lev_timer;
 var i;
 var ch=0;
+var bm=true;
+var xtra;
+var  audio =  document.getElementById("ad");
+function play() {
+   audio.play();
+ 
+    
+}
+function pause(){
+   audio.pause();
+}
 
   document.getElementById("ma1").stop();
      document.getElementById("ma2").stop();
@@ -17,12 +28,9 @@ var ch=0;
      document.getElementById("ma6").stop();
 
 function fnc(){
-   var audio = new Audio('bensound-endlessmotion.mp3');
+
 audio.play();
-function play() {
-  var audio = new Audio('bensound-endlessmotion.mp3');
-  audio.play();
-}
+
   
     ch=1;
    if(document.getElementById("st").value=="START"&&ch==1){
@@ -128,7 +136,7 @@ if(document.getElementById(d).value==y){
         
         t++;
     }
-   
+    
     else{
         document.getElementById(d).value=t;
         document.getElementById(d).style.backgroundColor= rgb(255-(t*4),255-(t*4),255-(t*4));
