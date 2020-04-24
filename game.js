@@ -1,9 +1,4 @@
-var audio = new Audio('bensound-endlessmotion.mp3');
-audio.play();
-function play() {
-  var audio = new Audio('bensound-endlessmotion.mp3');
-  audio.play();
-}
+
 
 var z_easy=0;
 var z_medium=0;
@@ -22,7 +17,12 @@ var ch=0;
      document.getElementById("ma6").stop();
 
 function fnc(){
-   
+   var audio = new Audio('bensound-endlessmotion.mp3');
+audio.play();
+function play() {
+  var audio = new Audio('bensound-endlessmotion.mp3');
+  audio.play();
+}
   
     ch=1;
    if(document.getElementById("st").value=="START"&&ch==1){
